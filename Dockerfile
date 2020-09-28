@@ -1,5 +1,5 @@
 FROM microsoft/powershell
 
-ADD ["entrypoint.sh", "/data/"]
+ADD ["entrypoint.ps1", "/data/"]
 
-ENTRYPOINT /data/entrypoint.sh
+ENTRYPOINT /data/entrypoint.ps1
