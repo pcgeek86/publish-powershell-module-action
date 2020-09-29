@@ -17,5 +17,6 @@ runs:
   using: docker
   image: Dockerfile
   args:
+    - ${{ inputs.moduleName }}
     - ${{ inputs.NuGetApiKey }}
     - ${{ inputs.modulePath }}
