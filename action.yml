@@ -3,7 +3,7 @@ description: Publishes a PowerShell module to the PowerShell Gallery.
 inputs:
   modulePath:
     description: The filesystem path to the module to publish
-    required: true
+    required: false
   NuGetApiKey:
     description: The NuGet API Key for PowerShell Gallery, with permission to push this module.
     required: true
