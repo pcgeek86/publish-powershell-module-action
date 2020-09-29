@@ -18,3 +18,9 @@ For example, if you named your secret `PS_GALLERY_KEY`:
           modulePath: YOURMODULENAME
           NuGetApiKey: ${{ secrets.PS_GALLERY_KEY }}
 ```
+
+## Assumptions
+
+* You're writing a PowerShell script module (not a compiled module)
+* Your module is contained within a subfolder of your GitHub repository
+* Your module manifest's name is consistent with its parent directory
