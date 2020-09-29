@@ -1,9 +1,12 @@
 name: Publish PowerShell Module
 description: Publishes a PowerShell module to the PowerShell Gallery.
 inputs:
+  moduleName:
+    description: The name of the PowerShell module to publish.
+    required: true
   modulePath:
-    description: The filesystem path to the module to publish
-    required: false
+    description: The filesystem path to the module to import into the environment.
+    required: true
   NuGetApiKey:
     description: The NuGet API Key for PowerShell Gallery, with permission to push this module.
     required: true
