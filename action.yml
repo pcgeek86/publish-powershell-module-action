@@ -4,6 +4,9 @@ inputs:
   modulePath:
     description: The filesystem path to the module to publish
     required: true
+  NuGetApiKey:
+    description: The NuGet API Key for PowerShell Gallery, with permission to push this module.
+    required: true
 outputs:
   successfullyPublished: # id of output
     description: Whether or not the publish command was successful
