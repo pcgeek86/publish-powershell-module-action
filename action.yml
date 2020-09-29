@@ -1,9 +1,6 @@
 name: Publish PowerShell Module
 description: Publishes a PowerShell module to the PowerShell Gallery.
 inputs:
-  moduleName:
-    description: The name of the PowerShell module to publish.
-    required: true
   modulePath:
     description: The filesystem path to the module to import into the environment.
     required: true
@@ -17,6 +14,5 @@ runs:
   using: docker
   image: Dockerfile
   args:
-    - ${{ inputs.moduleName }}
     - ${{ inputs.NuGetApiKey }}
     - ${{ inputs.modulePath }}
