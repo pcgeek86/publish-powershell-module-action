@@ -1,4 +1,5 @@
 #!/usr/bin/env pwsh
+$ErrorActionPreference = 'Stop'
 
 Write-Host $env:INPUT_MODULEPATH
 Write-Host $env:INPUT_NUGETAPIKEY
