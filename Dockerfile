@@ -1,4 +1,4 @@
-FROM microsoft/powershell
+FROM mcr.microsoft.com/powershell
 
 ADD ["entrypoint.ps1", "/data/"]
 
