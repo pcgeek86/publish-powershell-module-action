@@ -1,7 +1,17 @@
 #!/usr/bin/env pwsh
 $ErrorActionPreference = 'Stop'
 
-Write-Host "Publishing module ($env:INPUT_MODULEPATH) to PowerShell Gallery"
+$Modules = $null
+if ([string]::IsNullOrWhiteSpace($env:INPUT_MODULEPATH)) {
+    $Modules = Get-ChildItem -Recurse -Filter '*.psd1' |
+        Select-Object -Unique -ExpandProperty Directory
+} else {
+    $Modules = @($env:INPUT_MODULEPATH)
+}
 
-Publish-Module -Path $env:INPUT_MODULEPATH -NuGetApiKey $env:INPUT_NUGETAPIKEY
-Write-Host 'Finished publishing module to PowerShell Gallery'
+$Modules | ForEach-Object {
+    Write-Host "Publishing '$_' to PowerShell Gallery"
+
+    Publish-Module -Path $_ -NuGetApiKey $env:INPUT_NUGETAPIKEY
+    Write-Host "'$_' published to PowerShell Gallery"
+}
