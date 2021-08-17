@@ -10,7 +10,7 @@ This GitHub Action enables you to publish a PowerShell module to the [PowerShell
 
 For example, if you named your secret `PS_GALLERY_KEY`:
 
-```
+```yaml
       - name: Publish Module to PowerShell Gallery
         uses: pcgeek86/publish-powershell-module-action@v20
         id: publish-module
@@ -22,3 +22,39 @@ For example, if you named your secret `PS_GALLERY_KEY`:
 
 * You're writing a PowerShell script module (not a compiled module)
 * Your module is contained within a subfolder of your GitHub repository
+
+## Features
+
+### Environment Variable Substitution
+
+The deployment container includes [envsubst](https://github.com/a8m/envsubst#docs)
+to support environment variable usage in `.psd1` files.  See below for examples.
+
+#### Auto-increment patch version
+
+```powershell
+    # Version number of this module.
+    ModuleVersion = '1.0.${GITHUB_RUN_NUMBER}'
+```
+
+This will cause the patch version of the module to be automatically incremented each time the project builds.
+
+#### Project paths
+
+```powershell
+    # A URL to the main website for this project.
+    ProjectUri = 'https://github.com/${GITHUB_REPOSITORY}'
+
+    # A URL to the license for this module.
+    LicenseUri = 'https://github.com/${GITHUB_REPOSITORY}/blob/master/LICENSE'
+```
+
+#### Custom variables
+
+GitHub actions support defining your own [environment variables](https://docs.github.com/en/actions/reference/environment-variables).
+
+Examples:
+
+* externalize author, description, and/or copyright information
+* conditionally add [pre-release metadata](https://docs.microsoft.com/en-us/powershell/scripting/gallery/concepts/module-prerelease-support?view=powershell-7.1#identifying-a-module-version-as-a-prerelease)
+  (e.g. if not building from mainline)

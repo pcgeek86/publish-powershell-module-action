@@ -10,8 +10,14 @@ if ([string]::IsNullOrWhiteSpace($env:INPUT_MODULEPATH)) {
 }
 
 $Modules | ForEach-Object {
-    Write-Host "Publishing '$_' to PowerShell Gallery"
+    $Module = $_
+    Write-Host "Publishing '$Module' to PowerShell Gallery"
 
-    Publish-Module -Path $_ -NuGetApiKey $env:INPUT_NUGETAPIKEY
-    Write-Host "'$_' published to PowerShell Gallery"
+    Get-ChildItem -Path $_ -Filter '*.psd1' | ForEach-Object {
+        Write-Host "`tProcessing $_..."
+        envsubst --no-unset -i $_ -o $_
+    }
+
+    Publish-Module -Path $Module -NuGetApiKey $env:INPUT_NUGETAPIKEY
+    Write-Host "'$Module' published!"
 }
