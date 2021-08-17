@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/sdk:5.0-alpine3.13
+FROM mcr.microsoft.com/dotnet/sdk:5.0-alpine
 
 ADD ["entrypoint.ps1", "/data/"]
 

@@ -12,10 +12,9 @@ For example, if you named your secret `PS_GALLERY_KEY`:
 
 ```
       - name: Publish Module to PowerShell Gallery
-        uses: pcgeek86/publish-powershell-module-action@v19
+        uses: pcgeek86/publish-powershell-module-action@v20
         id: publish-module
         with:
-          modulePath: YOURMODULENAME
           NuGetApiKey: ${{ secrets.PS_GALLERY_KEY }}
 ```
 
@@ -23,4 +22,3 @@ For example, if you named your secret `PS_GALLERY_KEY`:
 
 * You're writing a PowerShell script module (not a compiled module)
 * Your module is contained within a subfolder of your GitHub repository
-* Your module manifest's name is consistent with its parent directory

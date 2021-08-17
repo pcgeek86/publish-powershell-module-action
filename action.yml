@@ -1,12 +1,12 @@
 name: Publish PowerShell Module
 description: Publishes a PowerShell module to the PowerShell Gallery.
 inputs:
-  modulePath:
-    description: The filesystem path to the module to import into the environment.
-    required: true
   NuGetApiKey:
     description: The NuGet API Key for PowerShell Gallery, with permission to push this module.
     required: true
+  modulePath:
+    description: The filesystem path to the module to publish.  If not provided, all directories that contains a .psd1 are published.
+    required: false
 outputs:
   successfullyPublished: # id of output
     description: Whether or not the publish command was successful
