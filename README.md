@@ -55,6 +55,6 @@ GitHub actions support defining your own [environment variables](https://docs.gi
 
 Examples:
 
-* externalize author, description, and/or copyright information
-* conditionally add [pre-release metadata](https://docs.microsoft.com/en-us/powershell/scripting/gallery/concepts/module-prerelease-support?view=powershell-7.1#identifying-a-module-version-as-a-prerelease)
+* Externalize author, description, and/or copyright information
+* Conditionally add [pre-release metadata](https://docs.microsoft.com/en-us/powershell/scripting/gallery/concepts/module-prerelease-support?view=powershell-7.1#identifying-a-module-version-as-a-prerelease)
   (e.g. if not building from mainline)
